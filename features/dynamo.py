@@ -34,6 +34,7 @@ def clean_profile_data(profile: dict) -> dict:
 
 
 def save_profile_to_dynamodb(profile: dict) -> str:
+
     user_id = str(uuid.uuid4())
     profile["user_id"] = user_id
 
