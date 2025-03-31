@@ -19,7 +19,7 @@ A full-stack Streamlit web application that generates AI-personalized meal plans
 
 ## 🚀 Live Demo
 
-🔗 [https://wellness-app-tursunai.online](https://wellness-app-tursunai.online)
+🔗 [https://wellness-app-tursunai.online](http://wellness-app-tursunai.online:8501)
 
 ---
 
