@@ -1,4 +1,7 @@
 import streamlit as st
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def display_meal_plan_history(history_list):

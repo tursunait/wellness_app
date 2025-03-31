@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 from features.diet_tracking import diet_tracking_page
 from PIL import Image
 
+
 load_dotenv()
 st.set_page_config(page_title="Wellness Meal Plan Generator", layout="wide")
 

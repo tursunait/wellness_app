@@ -5,6 +5,9 @@ import base64
 import boto3
 from features.llm_claude import call_claude
 from decimal import Decimal
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Connect to your DynamoDB table
 dynamodb = boto3.resource("dynamodb")
