@@ -1,6 +1,7 @@
 import uuid
 import boto3
 from decimal import Decimal
+from features.env_loader import load_env_variables
 
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table("wellness-app")
