@@ -8,7 +8,7 @@ from features.env_loader import load_env_variables
 load_env_variables()
 
 # Get AWS region from env
-region = os.getenv("AWS_REGION")
+region = os.getenv("AWS_REGION") or "us-east-1"
 
 # Initialize DynamoDB resource with region
 dynamodb = boto3.resource("dynamodb", region_name=region)
