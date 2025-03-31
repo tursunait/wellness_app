@@ -1,9 +1,17 @@
 import uuid
 import boto3
+import os
 from decimal import Decimal
 from features.env_loader import load_env_variables
 
-dynamodb = boto3.resource("dynamodb")
+# Load environment variables from .env
+load_env_variables()
+
+# Get AWS region from env
+region = os.getenv("AWS_REGION")
+
+# Initialize DynamoDB resource with region
+dynamodb = boto3.resource("dynamodb", region_name=region)
 table = dynamodb.Table("wellness-app")
 
 
