@@ -5,12 +5,19 @@ import base64
 import boto3
 from features.llm_claude import call_claude
 from decimal import Decimal
+from features.env_loader import load_env_variables
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# Connect to your DynamoDB table
-dynamodb = boto3.resource("dynamodb")
+# Load environment variables from .env
+load_env_variables()
+
+# Get AWS region from env
+region = os.getenv("AWS_REGION") or "us-east-1"
+
+# Initialize DynamoDB resource with region
+dynamodb = boto3.resource("dynamodb", region_name=region)
 table = dynamodb.Table("wellness-app")
 
 
