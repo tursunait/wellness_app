@@ -3,6 +3,8 @@ import datetime
 import uuid
 import base64
 import boto3
+import os
+
 from features.llm_claude import call_claude
 from decimal import Decimal
 from features.env_loader import load_env_variables
