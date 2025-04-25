@@ -1,6 +1,6 @@
-# 🥗 Wellness Meal Plan Generator – Hobbes Health
+# 🥗 Wellness Meal Plan Generator
 
-**Hobbes Health – Personalized Wellness App**  
+**Personalized Wellness App**  
 A full-stack Streamlit web application that generates AI-personalized meal plans based on user profile, lifestyle, health goals, and available food items. Built with AWS integration, Claude AI (via Bedrock), and hosted on an EC2 instance with a custom domain.
 
 ---
@@ -49,7 +49,6 @@ wellness_app/
 │   └── history.py                # View meal plan generation history
 ├── requirements.txt
 ├── .env                          # AWS Keys, Region
-├── hobbes_logo.png               # Logo for branding
 └── README.md
 ```
 
@@ -129,7 +128,7 @@ Claude generates structured meal plans based on:
 ## 👩‍💻 Author
 
 **Tursunai Turumbekova**  
-FLEX Alumna | Data Engineer | Duke IDS Student  
+AI Engineer | Duke IDS Student  
 🌐 [LinkedIn](https://www.linkedin.com/in/tursunai/) | ✨ [tursunait.github.io](https://tursunait.github.io)
 
 ---
