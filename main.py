@@ -1,3 +1,5 @@
+import os
+import logging
 import streamlit as st
 import datetime
 from features.calculations import (
@@ -18,6 +20,10 @@ from PIL import Image
 load_dotenv()
 st.set_page_config(page_title="Wellness Meal Plan Generator", layout="wide")
 
+
+logging.basicConfig(level=logging.DEBUG)
+st.write("✅ Streamlit started")
+st.write("✅ App running. ENV =", os.getenv("ENV", "not set"))
 # Load and display logo with title
 col1, col2 = st.columns([1, 5])
 

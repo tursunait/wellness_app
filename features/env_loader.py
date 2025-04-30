@@ -12,3 +12,11 @@ def load_env_variables():
     for var in required_vars:
         if not os.getenv(var):
             print(f"⚠️ Warning: {var} is not set in .env")
+
+
+# def load_env_variables():
+#     required_vars = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_REGION"]
+#     for var in required_vars:
+#         if not os.getenv(var):
+#             print(f"⚠️ Warning: {var} is not set!")
+#         # print(f"✅ {var} is set.")

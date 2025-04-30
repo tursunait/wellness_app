@@ -1,4 +1,5 @@
 import boto3
+import os
 import json
 import base64
 from typing import Optional
@@ -6,8 +7,8 @@ from features.env_loader import load_env_variables
 
 # Load .env file variables
 load_env_variables()
-
-bedrock = boto3.client("bedrock-runtime", region_name="us-east-1")
+region = os.getenv("AWS_REGION", "us-east-1")
+bedrock = boto3.client("bedrock-runtime", region_name=region)
 
 
 def call_claude(prompt: str, image: Optional[bytes] = None):
