@@ -122,7 +122,7 @@ docker run -p 8501:8501 wellness-app
 ```
 
 Here is the Docker Image: 
-[docker](img/docker.png)
+![docker](img/docker.png)
 
 ## 🧪 Load Testing with Locust
 Run the locust file to test the load on the app.
@@ -132,7 +132,7 @@ locust -f locustfile.py
 ```
 
 Here is the Locust file:
-[loucst](img/locust.png)
+![loucst](img/locust.png)
 
 ## 🧠 Claude Prompt Logic
 
