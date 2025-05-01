@@ -1,3 +1,5 @@
+[![Build & Push to ECR](https://github.com/tursunait/wellness_app/actions/workflows/deploy.yml/badge.svg)](https://github.com/tursunait/wellness_app/actions/workflows/deploy.yml)
+
 # 🥗 Wellness Meal Plan Generator
 
 **Personalized Wellness App**  
