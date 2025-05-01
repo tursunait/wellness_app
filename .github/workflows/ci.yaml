@@ -1,0 +1,53 @@
+name: CI & Push to ECR
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies (via Makefile)
+        run: make install
+
+      - name: Lint code (via Makefile)
+        run: make lint
+
+      - name: Run tests (via Makefile)
+        run: make test
+
+  build-and-push:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Log in to Amazon ECR
+        run: |
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 864899833497.dkr.ecr.us-east-1.amazonaws.com
+
+      - name: Build, tag, and push Docker image
+        run: |
+          docker build -t wellness-app .
+          docker tag wellness-app:latest 864899833497.dkr.ecr.us-east-1.amazonaws.com/wellness-app:latest
+          docker push 864899833497.dkr.ecr.us-east-1.amazonaws.com/wellness-app:latest

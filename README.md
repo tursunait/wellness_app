@@ -30,8 +30,10 @@ A full-stack Streamlit web application that generates AI-personalized meal plans
 | **Frontend**  | `Streamlit`, `PIL`, `HTML/CSS Markdown`               |
 | **Backend**   | `Python`, `Claude AI via AWS Bedrock`, `uuid`, `boto3` |
 | **Database**  | `Amazon DynamoDB`                                      |
-| **Cloud**     | `AWS EC2`, `AWS IAM`, `AWS Bedrock`, `AWS CLI`, `.env` |
+| **Cloud**     | `AWS EC2`,`AWS ECR`, `AWS IAM`, `AWS Bedrock`, `AWS CLI`, `.env` |
 | **Dev Tools** | `pip`, `venv`, `dotenv`, `GitHub`, `Namecheap DNS`     |
+| **Containers**| `Docker`, `DockerHub`, `Kubernetes`                    |
+
 
 ---
 
@@ -103,6 +105,32 @@ streamlit run main.py
 6. Point your domain to EC2 IP (via A record in Namecheap)
 
 ---
+
+
+## 🛠️ Docker Setup
+
+🐳 Build and Run the Docker Container
+```bash 
+# Build the Docker image
+docker build -t wellness-app .
+
+# Run the container on port 8501
+docker run -p 8501:8501 wellness-app
+
+```
+
+Here is the Docker Image: 
+[docker](img/docker.png)
+
+## 🧪 Load Testing with Locust
+Run the locust file to test the load on the app.
+
+```bash
+locust -f locustfile.py
+```
+
+Here is the Locust file:
+[loucst](img/locust.png)
 
 ## 🧠 Claude Prompt Logic
 

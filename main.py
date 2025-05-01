@@ -1,7 +1,6 @@
 import os
 import logging
 import streamlit as st
-import datetime
 from features.calculations import (
     calculate_bmi,
     calculate_bmr,
@@ -14,7 +13,6 @@ from features.dynamo import save_profile_to_dynamodb
 from features.history import display_meal_plan_history
 from dotenv import load_dotenv
 from features.diet_tracking import diet_tracking_page
-from PIL import Image
 
 
 load_dotenv()
@@ -237,7 +235,7 @@ if page == "Meal Plan Generator":
             if plan_scope == "1 Day":
                 prompt = f"""
 You are a certified nutritionist and wellness coach. Create a 1-day meal plan.
-Include breakfast, lunch, dinner, and 1–2 snacks with estimated portion sizes and macronutrients (calories, protein, carbs, fat).
+Include breakfast, lunch, dinner, and 1-2 snacks with estimated portion sizes and macronutrients (calories, protein, carbs, fat).
 User Info:
 - Age: {profile['age']} years
 - Gender: {profile['gender']}
