@@ -158,10 +158,6 @@ Here is the ECS Fargate Deployment  file:
 
 ---
 
-Great idea — DynamoDB is a core part of your backend. Here’s a concise and professional section you can add to your README under **🗃️ Database: Amazon DynamoDB** or just below the **📂 Project Structure**:
-
-
-
 ## 🗃️ Database: Amazon DynamoDB
 
 The app stores user profiles and diet logs in **Amazon DynamoDB**, enabling persistent, scalable, and fast access to:
