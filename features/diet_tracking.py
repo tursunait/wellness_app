@@ -1,14 +1,17 @@
 import streamlit as st
 import datetime
 import uuid
-import base64
+
+# import base64
 import boto3
 import os
 
 from features.llm_claude import call_claude
-from decimal import Decimal
+
+# from decimal import Decimal
 from features.env_loader import load_env_variables
-from dotenv import load_dotenv
+
+# from dotenv import load_dotenv
 
 
 # Load environment variables from .env

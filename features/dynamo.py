@@ -3,7 +3,8 @@ import boto3
 import os
 from decimal import Decimal
 from features.env_loader import load_env_variables
-from dotenv import load_dotenv
+
+# from dotenv import load_dotenv
 
 # Load environment variables from .env
 load_env_variables()
