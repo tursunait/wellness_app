@@ -5,7 +5,17 @@
 **Personalized Wellness App**  
 A full-stack Streamlit web application that generates AI-personalized meal plans based on user profile, lifestyle, health goals, and available food items. Built with AWS integration, Claude AI (via Bedrock), and hosted on an EC2 instance with a custom domain.
 
----
+## 🚀 Live Demo
+
+🔗 [https://wellness-app-tursunai.online](http://wellness-app-tursunai.online:8501)
+
+
+## 🧠 Claude Prompt Logic
+
+Claude generates structured meal plans based on:
+- User input: age, gender, weight, goals, equipment, ingredients
+- Meal format: Day-by-day, breakfast/lunch/dinner/snacks
+- Macronutrient output per meal (calories, protein, carbs, fat)
 
 ## 📌 Features
 
@@ -17,14 +27,6 @@ A full-stack Streamlit web application that generates AI-personalized meal plans
 - 📥 **Download meal plans** as PDF or TXT
 - ☁️ **Hosted on AWS EC2** with a custom domain via Namecheap
 
----
-
-## 🚀 Live Demo
-
-🔗 [https://wellness-app-tursunai.online](http://wellness-app-tursunai.online:8501)
-
----
-
 ## 🖥️ Tech Stack
 
 | Layer         | Tools / Services Used                                  |
@@ -32,10 +34,9 @@ A full-stack Streamlit web application that generates AI-personalized meal plans
 | **Frontend**  | `Streamlit`, `PIL`, `HTML/CSS Markdown`               |
 | **Backend**   | `Python`, `Claude AI via AWS Bedrock`, `uuid`, `boto3` |
 | **Database**  | `Amazon DynamoDB`                                      |
-| **Cloud**     | `AWS EC2`,`AWS ECR`, `AWS IAM`, `AWS Bedrock`, `AWS CLI`, `.env` |
-| **Dev Tools** | `pip`, `venv`, `dotenv`, `GitHub`, `Namecheap DNS`     |
-| **Containers**| `Docker`, `DockerHub`, `Kubernetes`                    |
-
+| **Cloud**     | `AWS EC2`, `ECS Fargate`, `ECR`, `Bedrock`, `IAM`, `Route 53`, `Namecheap` |
+| **Dev Tools** | `pip`, `venv`, `dotenv`, `GitHub Actions`, `Makefile`, `Locust`, `Docker` |
+| **Containers**| `Docker`, `ECS Fargate`, `CloudWatch Logs`             |
 
 ---
 
@@ -53,6 +54,12 @@ wellness_app/
 │   └── history.py                # View meal plan generation history
 ├── requirements.txt
 ├── .env                          # AWS Keys, Region
+├── Dockerfile
+├── Makefile
+├── locustfile.py
+├── logs.txt
+├── .github/workflows
+│   └── CICD.yaml 
 └── README.md
 ```
 
@@ -106,9 +113,6 @@ streamlit run main.py
    ```
 6. Point your domain to EC2 IP (via A record in Namecheap)
 
----
-
-
 ## 🛠️ Docker Setup
 
 🐳 Build and Run the Docker Container
@@ -134,14 +138,61 @@ locust -f locustfile.py
 Here is the Locust file:
 ![loucst](img/locust.png)
 
-## 🧠 Claude Prompt Logic
+---
 
-Claude generates structured meal plans based on:
-- User input: age, gender, weight, goals, equipment, ingredients
-- Meal format: Day-by-day, breakfast/lunch/dinner/snacks
-- Macronutrient output per meal (calories, protein, carbs, fat)
+## 🚀 ECS Fargate Deployment (via CI/CD)
+
+- GitHub Actions build & test code
+- Push Docker image to Amazon ECR
+- Auto-update ECS service for `wellness-task`
+- Configured with `Makefile` + `.github/workflows/deploy.yml`
+
+CI/CD YAML includes:
+- ✅ Checkout
+- ✅ Lint/Test
+- ✅ Build Docker
+- ✅ Push to ECR
+- ✅ Deploy to ECS (Fargate)
+
+Here is the ECS Fargate Deployment  file:
+![ECS Fargate Deployment ](img/ecs.png)
 
 ---
+
+Great idea — DynamoDB is a core part of your backend. Here’s a concise and professional section you can add to your README under **🗃️ Database: Amazon DynamoDB** or just below the **📂 Project Structure**:
+
+
+
+## 🗃️ Database: Amazon DynamoDB
+
+The app stores user profiles and diet logs in **Amazon DynamoDB**, enabling persistent, scalable, and fast access to:
+
+* User demographic and health profile data
+* Daily meal plans and feedback logs
+* Nutrition summaries and meal history
+
+![dynamo](img/dynamo.png)
+
+
+## Features:
+🧬 **Personalized User Profile Form** 
+
+![main](img/mainpage.png)
+
+🗓️ Generate meal plans for **1 Day or 7 Days**, with **calorie & macronutrient breakdown**
+
+![meal](img/meal.png) 
+
+📥 **Download meal plans** as PDF or TXT
+
+![mealplan](img/mealplan1.png) 
+
+📝 **Diet tracking** section with DynamoDB-powered logging and daily nutrition summaries
+
+![diettracking](img/diettracking.png) 
+
+![logsummary](img/logsummary.png) 
+
 
 ## 📘 Future Improvements
 
@@ -153,24 +204,19 @@ Claude generates structured meal plans based on:
 - 🧾 Integrate image-to-text parsing for groceries
 - 📤 Enable email or SMS export of plans
 
----
 
-## 👩‍💻 Author
+## ✅ Requirements Met
 
-**Tursunai Turumbekova**  
-AI Engineer | Duke IDS Student  
-🌐 [LinkedIn](https://www.linkedin.com/in/tursunai/) | ✨ [tursunait.github.io](https://tursunait.github.io)
-
----
+- ✔️ **Open source ML model**: Claude (Anthropic) via AWS Bedrock used for meal generation
+- ✔️ **Web service for inference**: Streamlit app hosted on AWS
+- ✔️ **Containerized**: Dockerized application
+- ✔️ **Deployed via orchestration**: ECS Fargate (Kubernetes-alternative)
+- ✔️ **CI/CD pipeline**: GitHub Actions auto-build + deploy to ECS
+- ✔️ **Monitoring**: ECS logging via CloudWatch
+- ✔️ **Documentation & Demo**: [Live App](https://wellness-app-tursunai.online), screenshots below, and this README
 
 ## 🛡️ License
 
 This project is licensed under the [MIT License](LICENSE).
 
----
-
-## ⭐️ Support
-
-If you like this project, please consider giving it a ⭐ on GitHub.  
-Feel free to open issues or suggestions — contributions are welcome!
 

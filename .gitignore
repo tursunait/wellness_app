@@ -1,3 +1,6 @@
 .env
 __pycache__/
 wellness-app.pem
+service.yaml
+deployment.yaml
+aws-auth.yaml
