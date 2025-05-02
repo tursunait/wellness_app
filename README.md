@@ -1,5 +1,4 @@
-[![Build & Push to ECR](https://github.com/tursunait/wellness_app/actions/workflows/deploy.yml/badge.svg)](https://github.com/tursunait/wellness_app/actions/workflows/deploy.yml)
-
+[![CI/CD Pipeline - Lint, Test, Push to ECR, Deploy to ECS](https://github.com/tursunait/wellness_app/actions/workflows/CICD.yaml/badge.svg)](https://github.com/tursunait/wellness_app/actions/workflows/CICD.yaml)
 # 🥗 Wellness Meal Plan Generator
 
 **Personalized Wellness App**  
