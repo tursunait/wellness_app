@@ -1,5 +1,7 @@
 [![CI/CD Pipeline - Lint, Test, Push to ECR, Deploy to ECS](https://github.com/tursunait/wellness_app/actions/workflows/CICD.yaml/badge.svg)](https://github.com/tursunait/wellness_app/actions/workflows/CICD.yaml)
 # 🥗 Wellness Meal Plan Generator
+## Authors
+Tursunai Turumbekova, Afag Ramazanova
 
 **Personalized Wellness App**  
 A full-stack Streamlit web application that generates AI-personalized meal plans based on user profile, lifestyle, health goals, and available food items. Built with AWS integration, Claude AI (via Bedrock), and hosted on an EC2 instance with a custom domain.
@@ -7,7 +9,7 @@ A full-stack Streamlit web application that generates AI-personalized meal plans
 ## 🚀 Live Demo
 
 🔗 [https://wellness-app-tursunai.online](http://wellness-app-tursunai.online:8501)
-
+📺 [Demo Video](https://www.youtube.com/watch?v=C6csKAJZm18)
 
 ## 🧠 Claude Prompt Logic
 
